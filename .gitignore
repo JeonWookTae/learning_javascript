@@ -9,3 +9,5 @@ node_modules/
 
 # 임시파일
 *.tmp
+
+.idea/
