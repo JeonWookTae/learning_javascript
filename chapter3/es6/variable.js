@@ -41,4 +41,10 @@ const ORANGE = Symbol("The color of a sunset");
 console.log(RED === ORANGE); // false 심볼은 모두 다릅니다.
 // 여긴 === 로 사용하네
 
+let current_temp;
+const target_temp = null;
+current_temp = 19.5;
+current_temp = undefined;
+// 변수를 선언하고 명시적으로 값을 할당하지 않으면 그 변수에는 기본적으로 undefinded가 할당 됨니다.
+
 
