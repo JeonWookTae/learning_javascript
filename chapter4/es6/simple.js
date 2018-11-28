@@ -52,3 +52,55 @@ while(funds > 1 && funds < 100){
     console.log(`\twinnings: ${winnings}`);
 }
 console.log(`\tending funds: ${funds}`);
+
+// for in loop
+const player = {name:'Thomas', rank:'Midshipman', age:25};
+for(let prop in player){
+    if(!player.hasOwnProperty(prop)) continue;
+    console.log(prop+': '+player[prop])
+}
+
+
+//for of loop
+const hand = [randFace(), randFace(), randFace()];
+for(let face of hand){
+    console.log(face)
+}
+
+
+// loop
+let i = 0;
+const bigArrayOfNumbers = [10,20,23,4,1,4,2,1,4,0];
+
+function isPrime(number){
+    for(let t =2; t<number; t++){
+        if(number%t === 0) return false
+    }
+    return true
+}
+
+for(; bigArrayOfNumbers.length; i++){
+    if(isPrime(bigArrayOfNumbers[i])) break;
+}
+if(i === bigArrayOfNumbers.length) console.log('No Prime numbers');
+else console.log(`First prime number position ${i}`);
+
+
+//5장 해체 할당
+const obj = {b:2, c:3, d:4};
+const {a,b,c} = obj;
+
+const arr = [1,2,3];
+let [x,y] = arr;
+console.log(x,y);
+
+
+// 3항 연산자
+if(isPrime(13)){
+    label = 'prime';
+}else{
+    label = 'non-prime';
+}
+
+label = isPrime(13) ? 'prime': 'non-prime';
+console.log(label);
