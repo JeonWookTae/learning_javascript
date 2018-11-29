@@ -65,3 +65,59 @@ console.log(f1());
 const f2 = function(name){return `hellow ${name}`};
 const f2_1 = name => `hellow ${name}`;
 console.log(f2_1('123'));
+
+
+// 객체의 프로퍼티 함수
+const o1 = {
+    name : 'Wallace',
+    bark : function() {return 'woof!'}
+};
+const o2 = {
+    name : 'Wallace',
+    bark() {return 'woof!'}
+};
+
+
+// this
+const o3 ={
+    name : 'wallance',
+    speak() {return `My name is ${this.name}`}
+};
+console.log(o3.speak()); // My name is wallance
+
+const speak = o3.speak;
+console.log(speak === o3.speak);
+console.log(speak());
+
+// 오류가 발생함. 호출 했을 때 this를 정하기 때문에 this가 다른 곳에 묶인 다고 함.
+// const o4 = {
+//     name : 'Julie',
+//     greetBackwards: function() {
+//         function getReverseName() {
+//             let nameBackwards = '';
+//             for(let i = this.name.length-1; i>=0; i--){
+//                 nameBackwards += this.name[i];
+//             }
+//             return nameBackwards;
+//         }
+//         return `${getReverseName()} si eman ym ,olleH`;
+//     }
+// };
+// console.log(o4.greetBackwards());
+
+
+const o4 = {
+    name : 'Julie',
+    greetBackwards: function() {
+        const self = this;
+        function getReverseName() {
+            let nameBackwards = '';
+            for(let i = self.name.length-1; i>=0; i--){
+                nameBackwards += self.name[i];
+            }
+            return nameBackwards;
+        }
+        return `${getReverseName()} si eman ym ,olleH`;
+    }
+};
+console.log(o4.greetBackwards());
