@@ -121,3 +121,31 @@ const o4 = {
     }
 };
 console.log(o4.greetBackwards());
+
+const bruce = {name:"bruce"};
+const madeline = {name:"madeline"};
+function greet(){
+    return `hellow, i am ${this.name}`;
+}
+console.log(greet());
+console.log(greet.call(bruce));
+console.log(greet.call(madeline));
+
+function update(birthYear, occuption){
+    this.birthYear = birthYear;
+    this.occuption = occuption;
+}
+
+update.call(bruce, 1949, 'singer');
+console.log(bruce);
+update.call(madeline, 1942, 'actress');
+console.log(madeline);
+
+update.apply(bruce, [1995, 'actor']);
+console.log(bruce);
+update.apply(madeline, [1918, 'writer']);
+console.log(madeline);
+
+const arrMath = [2,3,-5,15,7];
+console.log(Math.min.apply(null, arrMath));
+console.log(Math.max.apply(null, arrMath));
