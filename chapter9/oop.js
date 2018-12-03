@@ -36,6 +36,7 @@ car2.shift('R');
 
 console.log(car1.userGear, car2.userGear);
 
+// 바로 객체 생성
 const newCar = (function () {
     const carProps = new WeakMap();
 
