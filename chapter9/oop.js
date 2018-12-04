@@ -100,3 +100,33 @@ class staticCar{
     }
 }
 staticCar.nextVin = 0;
+
+
+// 상속^^
+class Vehicle{
+    constructor(){
+        this.passengers = [];
+        console.log('Vehicle created')
+    }
+    addPassenger(p) {
+        this.passengers.push(p)
+    }
+}
+
+class extendsCar extends Vehicle{
+    constructor(){
+        super();
+        console.log('Car created');
+    }
+    deployAirbag(){
+        console.log('BWOOSH!');
+    }
+}
+const v = new Vehicle();
+v.addPassenger('Frank');
+v.addPassenger('Judy');
+console.log(v.passengers);
+const c = new extendsCar();
+c.addPassenger('Alice');
+console.log(c.passengers);
+c.deployAirbag();
