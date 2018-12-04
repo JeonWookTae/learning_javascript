@@ -74,3 +74,29 @@ function CarFunc(make, model){
 class Es6Car {}
 function Es5Car(){}
 console.log(typeof(Es6Car), typeof(Es5Car) );
+
+//prototype property
+const Car1 = new Car();
+const Car2 = new Car();
+Car1.shift === Car.prototype.shift; // True
+Car1.shift('D');
+Car1.shift === Car.prototype.shift; // True
+
+//static method
+class staticCar{
+    static getNextVin(){
+        return staticCar.nextVin++;
+    }
+    constructor(make, model){
+        this.make = make;
+        this.model = model;
+        this.vin = staticCar.getNextVin();
+    }
+    static areSimilar(car1, car2){
+        return car1.make === car2.make && car1.model === car2.model;
+    }
+    static areSame(car1, car2){
+        return car1.vin === car2.vin;
+    }
+}
+staticCar.nextVin = 0;
