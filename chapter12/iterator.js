@@ -56,5 +56,5 @@ const fib = new FibonacciSequence();
 let i = 0;
 for(let n of fib){
     console.log(n);
-    if(++i>9) break;
+    if(++i>11) break;
 }
