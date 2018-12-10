@@ -1,3 +1,4 @@
+// 프라미스, 장황한 코드라 좋은 코드는 아니라고 한다.
 function countdown(seconds){
     return new Promise(function(resolve, reject){
         for(let i =seconds; i>=0; i--){
