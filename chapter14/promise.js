@@ -12,7 +12,7 @@ function countdown(seconds){
 
 countdown(3);
 
-// 
+
 countdown(5).then(
   function(){
       console.log("countdown completed successfully");
