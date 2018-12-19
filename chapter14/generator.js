@@ -40,3 +40,12 @@ function* theFuterIsNow(){
 }
 
 grun(theFuterIsNow);
+
+function* theFuterisnow(){
+    const data = yield Promise.all([
+        nfcall(fs.readFile, 'a.txt'),
+        nfcall(fs.readFile, 'b.txt'),
+        nfcall(fs.readFile, 'c.txt')]);
+    yield ptimeout(60*1000);
+    yield nfcall(fs.writeFile, 'e.txt', data[0]+data[1]+data[2])
+}
