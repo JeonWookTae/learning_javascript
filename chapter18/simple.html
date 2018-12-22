@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet", href="simple.css">
     <title>Simple HTML</title>
     <style>
         .callout{
@@ -33,8 +34,16 @@
     <div id="callout2" class="callout fancy">
         <p>A single HTML element can have multiple classes.</p>
     </div>
+    <button data-action="highlight" data-containing="unique">
+        Highlight paragraphs containing "unique"
+    </button>
+    <button data-action="removeHighlights">
+        Remove highlights
+    </button>
 </div>
 <script src="traverse.js"></script>
+<script src="innerHTML.js"></script>
+<script src="style.js"></script>
 </body>
 </html>
 
