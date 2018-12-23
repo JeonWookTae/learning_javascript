@@ -30,11 +30,37 @@
     const div = document.querySelector('div');
     const button = document.querySelector('button');
     addEventLogger(body, 'capture');
-    addEventLogger(body, 'bubble');
+    addEventLogger(body, 'bubble', 'cancel');
     addEventLogger(div, 'capture');
     addEventLogger(div, 'bubble');
     addEventLogger(button, 'capture');
     addEventLogger(button, 'bubble');
+</script>
+<div class="serverInfo">
+    Server is running on <span data-replace="platform">???</span>
+    with Node <span data-replace="nodeVersion">???</span>
+    been up for <span data-replace="uptime">???</span>
+</div>
+<script>
+    function refreshServerInfo(){
+        const req = new XMLHttpRequest();
+        req.addEventListener('load', function(){
+            console.log(this.responseText);
+        });
+        req.open('GET', 'http://localhost:7070', true);
+        req.send();
+        req.addEventListener('load', function(){
+           const data = JSON.parse(this.responseText);
+           const serverInfo = document.querySelector('.serverInfo');
+           Object.keys(data).forEach(p => {
+               const replacements = serverInfo.querySelectorAll(`[data-replace="${p}"]`);
+               for(let r of replacements){
+                   r.textContent = data[p]
+               }
+           });
+        });
+    }
+    setInterval(refreshServerInfo, 200);
 </script>
 
 </body>
