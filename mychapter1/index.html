@@ -397,12 +397,27 @@ Created by pixpalette.com - online design magazine -->
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="venue">
                     	<h4> Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit,<br> sed do eiusmod<br> Pune 411058</h4><br>
-                        <iframe src="https://www.google.com/maps/d/embed?mid=1UMEBYRnM0KZhrhqikVv3YigwUd0" width="640" height="300"></iframe>
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade" id="termCondition">
-           				<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
-                        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
-                        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
+                        <!--<iframe src="https://www.google.com/maps/d/embed?mid=1UMEBYRnM0KZhrhqikVv3YigwUd0" width="640" height="300"></iframe>-->
+                        <script>
+                            'use strict';
+                            let html_format = '이건 테스틑 위한 문서 입니다.';
+                            var node = document.createTextNode(html_format);
+                            var element = document.getElementById("venue");
+                            element.appendChild(node);
+                        </script>
+
+                        <script>
+                            let html_test;
+                            let inner_function = function(html_value){
+                                document.getElementById("venue")
+                                    .innerHTML = html_value
+                            };
+                            for(let i=0; i < 3; i ++){
+                                html_test +="<h4> 이거슨? <br> 테스트를 위한 것</h4>";
+                            }
+                            inner_function(html_test);
+                        </script>
+
                     </div>
                   </div>
                 
