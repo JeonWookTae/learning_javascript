@@ -48,9 +48,9 @@ Created by pixpalette.com - online design magazine -->
                         function set_clock(){
                             var current_date = new Date();
                             var div_clock = document.getElementById('time_span');
-                            var meg = '현재시간: ' + current_date.getHours() + '시 ';
+                            var meg = '현재시간은 ' + current_date.getHours() + '시 ';
                             meg += current_date.getMinutes() + '분 ';
-                            meg += current_date.getSeconds() + '초';
+                            meg += current_date.getSeconds() + '초 입니다';
                             div_clock.innerText = meg;
                             setTimeout(set_clock, 1000);
                         }
