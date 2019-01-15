@@ -41,8 +41,22 @@ Created by pixpalette.com - online design magazine -->
                 
                 	<h2>
                     Music<br>Concert Live
-                    <span>10 April 2017, 8:00 PM</span>
+                    <span id="time_span">10 April 2017, 8:00 PM</span>
                     </h2>
+
+                    <script type="text/javascript">
+                        function set_clock(){
+                            var current_date = new Date();
+                            var div_clock = document.getElementById('time_span');
+                            var meg = '현재시간: ' + current_date.getHours() + '시 ';
+                            meg += current_date.getMinutes() + '분 ';
+                            meg += current_date.getSeconds() + '초';
+                            div_clock.innerText = meg;
+                            setTimeout(set_clock, 1000);
+                        }
+                        set_clock()
+                    </script>
+
                     <p>created by <a href="http://www.pixpalette.com" target="_blank">pixpalette</a></p>
                 </div>
             </div>
@@ -405,11 +419,12 @@ Created by pixpalette.com - online design magazine -->
                             var element = document.getElementById("venue");
                             element.appendChild(node);
                         </script>
+                        <h4 id="h4 test"></h4>
 
                         <script>
-                            let html_test;
+                            let html_test = "";
                             let inner_function = function(html_value){
-                                document.getElementById("venue")
+                                document.getElementById("h4 test")
                                     .innerHTML = html_value
                             };
                             for(let i=0; i < 3; i ++){
