@@ -14,7 +14,7 @@ class deco_class:
     @classmethod
     def deco_session(cls, trans):
         def print_func():
-            print('이건 데코 시험입니다.')
+            print('이건 데코레이터 시험입니다.')
 
         def deco(func):
             print_func()
