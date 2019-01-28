@@ -19,7 +19,7 @@ log("attempted to load 20 fake members");
 
 getFakeMembers(20).then(
     members => log(`successfully loaded ${members.length} members`),
-    errors => log('encountered an error loading members')
+    errors => log('encountered an error loading members  ')
 );
 
 const countdown = (value, fn) => {
