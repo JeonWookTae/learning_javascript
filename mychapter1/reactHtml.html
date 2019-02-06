@@ -10,12 +10,12 @@
 
 <div id="react-container"></div>
 <div id="react-container-list"></div>
+<div id="react-container-factory"></div>
 
 <script>
     var dish = React.createElement("h1", {id: "recipe-0", 'data-type':"title"}, "구은 연어");
     //<h1 data-reactroot id="recipe-0" data-type="title">구은 연어</h1>
     ReactDOM.render(dish, document.getElementById('react-container'));
-    console.log(dish.props.children)
 </script>
 
 <script>
@@ -40,6 +40,26 @@
     ReactDOM.render(
         React.createElement(IngredientsList, {items}, null),
         document.getElementById("react-container-list")
+    )
+</script>
+
+<script>
+    const {render} = ReactDOM;
+    const IngredientsListFactory = ({list}) =>
+        React.createElement('ul', null, list.map((ingredient, i)=>
+            React.createElement('li', {key:i}, ingredient))
+        );
+    const Ingredients = React.createFactory(IngredientsListFactory);
+    const list = [
+        "이거",
+        "이렇게",
+        "쓰면",
+        "되는거",
+        "맞니"
+    ];
+    render(
+        Ingredients({list}),
+        document.getElementById('react-container-factory')
     )
 </script>
 
