@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <title>리액트 예제</title>
+</head>
+<body>
+
+<div id="react-container"></div>
+<div id="react-container-list"></div>
+
+<script>
+    var dish = React.createElement("h1", {id: "recipe-0", 'data-type':"title"}, "구은 연어");
+    //<h1 data-reactroot id="recipe-0" data-type="title">구은 연어</h1>
+    ReactDOM.render(dish, document.getElementById('react-container'));
+    console.log(dish.props.children)
+</script>
+
+<script>
+    class IngredientsList extends React.Component{
+        renderListItem(ingredient, i){
+            return React.createElement("li", {key:i}, ingredient)
+        }
+        render(){
+            return React.createElement("ul", {className: "ingredients"},
+            this.props.items.map(this.renderListItem))
+        }
+    }
+
+    const items = [
+        "연어 먹고 싶다 500그램",
+        "초고추장 한개",
+        "양파 한망",
+        "간장은 취향",
+        "와사비 한개"
+    ];
+
+    ReactDOM.render(
+        React.createElement(IngredientsList, {items}, null),
+        document.getElementById("react-container-list")
+    )
+</script>
+
+</body>
+</html>
