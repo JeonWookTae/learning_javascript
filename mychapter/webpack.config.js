@@ -1,7 +1,10 @@
-var webpack = require("webpack");
+var webpack = require("webpack")
+var path = require("path")
+
+process.noDeprecation = true
 
 module.exports = {
-  entry: "./index.js",
+  entry: "./src/index.js",
   output: {
       path: path.join(__dirname, 'dist', 'assets'),
       filename: "bundle.js",
@@ -29,13 +32,13 @@ module.exports = {
       ]
   },
   plugins: [
-      //
+
       new webpack.DefinePlugin({
           "process.env": {
               NODE_ENV: JSON.stringify("production")
           }
       }),
-      // 난도화
+
       new webpack.optimize.UglifyJsPlugin({
           sourceMap: true,
           warnings: false,
